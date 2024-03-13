@@ -13,20 +13,17 @@ namespace StoreMVC.Model
     public class Product 
     {
         [Key]
-        [Required]
         public int ProductId { get; set; }
         [Required]
-        public string? Name { get; set; }
+        [MaxLength(50)]
+        public string Name { get; set; }
         [Required]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
         [Required]
-        public string? Image { get; set; }
+        public string Image { get; set; }
         [Required]
-        public bool IsActive { get; set; }
-        [ForeignKey(nameof(BasketPositionId))]
-        public int BasketPositionId { get; set; }
-        public virtual IEnumerable<BasketPosition>? BasketPositions { get; set; }
+        public bool? IsActive { get; set; }
 
-        
+        public virtual IEnumerable<BasketPosition>? BasketPositions { get; set; }       
     }
 }

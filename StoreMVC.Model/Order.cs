@@ -15,20 +15,17 @@ namespace StoreMVC.Model
         [Key]
         public int OrderId{ get; set; }
         [Required]
-        public DateTime Date { get; set; } = DateTime.Now;
+        public DateTime? Date { get; set; } 
+
         [ForeignKey(nameof(UserId))]
-        [Required]
         public int UserId{ get; set; }
-        [Required]
-        public virtual User? User { get; set; }
-        [Required]
-        public virtual IEnumerable<OrderPosition>? OrderPositions { get; set; }
+        public virtual User User { get; set; }
+
+        public virtual IEnumerable<OrderPosition> OrderPositions { get; set; }
 
         public void Configure(EntityTypeBuilder<Order> builder)
         {
             builder.HasOne(o => o.User).WithMany(u => u.UserOrders).OnDelete(DeleteBehavior.Cascade);
-            builder.HasMany(o => o.OrderPositions).WithOne(o => o.Order).OnDelete(DeleteBehavior.Cascade);
-
         }
     }
 }

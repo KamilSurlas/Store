@@ -3434,23 +3434,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Student\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\PCAS1\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Student\\Desktop\\StoreMVC\\StoreMVC.DataAccess\\StoreMVC.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\PCAS1\\Desktop\\Store\\StoreMVC\\StoreMVC.DataAccess\\StoreMVC.DataAccess.csproj",
       "projectName": "StoreMVC.DataAccess",
-      "projectPath": "C:\\Users\\Student\\Desktop\\StoreMVC\\StoreMVC.DataAccess\\StoreMVC.DataAccess.csproj",
-      "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Student\\Desktop\\StoreMVC\\StoreMVC.DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\PCAS1\\Desktop\\Store\\StoreMVC\\StoreMVC.DataAccess\\StoreMVC.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\PCAS1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PCAS1\\Desktop\\Store\\StoreMVC\\StoreMVC.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PCAS1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3464,8 +3465,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Student\\Desktop\\StoreMVC\\StoreMVC.Model\\StoreMVC.Model.csproj": {
-              "projectPath": "C:\\Users\\Student\\Desktop\\StoreMVC\\StoreMVC.Model\\StoreMVC.Model.csproj"
+            "C:\\Users\\PCAS1\\Desktop\\Store\\StoreMVC\\StoreMVC.Model\\StoreMVC.Model.csproj": {
+              "projectPath": "C:\\Users\\PCAS1\\Desktop\\Store\\StoreMVC\\StoreMVC.Model\\StoreMVC.Model.csproj"
             }
           }
         }
@@ -3528,7 +3529,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

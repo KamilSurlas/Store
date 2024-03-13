@@ -15,17 +15,16 @@ namespace StoreMVC.Model
         [Key]
         public int BasketPositionId { get; set; }
         [Required]
-        public int Amount { get; set; }
+        public int? Amount { get; set; }
+
+
         [ForeignKey(nameof(ProductId))]
-        [Required]
         public int ProductId{ get; set; }
-        [Required]
-        public virtual Product? Product{ get; set; }
-        [ForeignKey(nameof(UserId))]
-        [Required]
+        public virtual Product Product{ get; set; }
+
+        [ForeignKey(nameof(UserId))]   
         public int UserId { get; set; }
-        [Required]
-        public virtual User? User { get; set; }
+        public virtual User User { get; set; }
 
         public void Configure(EntityTypeBuilder<BasketPosition> builder)
         {

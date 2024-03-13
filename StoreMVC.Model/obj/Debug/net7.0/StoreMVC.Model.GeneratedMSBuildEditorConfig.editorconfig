@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StoreMVC.Model
-build_property.ProjectDir = C:\Users\Student\Desktop\StoreMVC\StoreMVC.Model\
+build_property.ProjectDir = C:\Users\PCAS1\Desktop\Store\StoreMVC\StoreMVC.Model\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

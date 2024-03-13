@@ -15,14 +15,14 @@ namespace StoreMVC.Model
         [Key]
         public int OrderPositionId { get; set; }
         [Required]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
         [Required]
-        public int Amount{ get; set; }
-        [ForeignKey(nameof(OrderId))]
-        [Required]
+        public int? Amount{ get; set; }
+
+
+        [ForeignKey(nameof(OrderId))] 
         public int OrderId { get; set; }
-        [Required]
-        public virtual Order? Order { get; set; }
+        public virtual Order Order { get; set; }
 
         public void Configure(EntityTypeBuilder<OrderPosition> builder)
         {
