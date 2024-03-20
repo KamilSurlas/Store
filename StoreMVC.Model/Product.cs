@@ -14,16 +14,13 @@ namespace StoreMVC.Model
     {
         [Key]
         public int ProductId { get; set; }
-        [Required]
         [MaxLength(50)]
-        public string Name { get; set; }
-        [Required]
-        public decimal? Price { get; set; }
-        [Required]
-        public string Image { get; set; }
-        [Required]
-        public bool? IsActive { get; set; }
+        public required string Name { get; set; }
+        public decimal Price { get; set; }
+        public required string Image { get; set; }
+        public bool IsActive { get; set; }
 
-        public virtual IEnumerable<BasketPosition>? BasketPositions { get; set; }       
+        public virtual IEnumerable<BasketPosition>? BasketPositions { get; set; }  
+        public virtual IEnumerable<OrderPosition>? OrderPositions { get; set; }
     }
 }

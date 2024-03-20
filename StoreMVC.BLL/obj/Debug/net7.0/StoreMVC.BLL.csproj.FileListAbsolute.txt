@@ -1,0 +1,15 @@
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\bin\Debug\net7.0\StoreMVC.BLL.deps.json
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\bin\Debug\net7.0\StoreMVC.BLL.dll
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\bin\Debug\net7.0\StoreMVC.BLL.pdb
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\StoreMVC.BLL.csproj.AssemblyReference.cache
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\StoreMVC.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\StoreMVC.BLL.AssemblyInfoInputs.cache
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\StoreMVC.BLL.AssemblyInfo.cs
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\StoreMVC.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\StoreMVC.BLL.dll
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\refint\StoreMVC.BLL.dll
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\StoreMVC.BLL.pdb
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\ref\StoreMVC.BLL.dll
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\bin\Debug\net7.0\StoreMVC.Model.dll
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\bin\Debug\net7.0\StoreMVC.Model.pdb
+C:\Users\Student\Desktop\StoreMVC\StoreMVC\StoreMVC.BLL\obj\Debug\net7.0\StoreMVC.BLL.csproj.CopyComplete

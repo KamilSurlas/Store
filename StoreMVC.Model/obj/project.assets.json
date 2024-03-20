@@ -518,24 +518,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PCAS1\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Student\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PCAS1\\Desktop\\Store\\StoreMVC\\StoreMVC.Model\\StoreMVC.Model.csproj",
+      "projectUniqueName": "C:\\Users\\Student\\Desktop\\StoreMVC\\StoreMVC\\StoreMVC.Model\\StoreMVC.Model.csproj",
       "projectName": "StoreMVC.Model",
-      "projectPath": "C:\\Users\\PCAS1\\Desktop\\Store\\StoreMVC\\StoreMVC.Model\\StoreMVC.Model.csproj",
-      "packagesPath": "C:\\Users\\PCAS1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PCAS1\\Desktop\\Store\\StoreMVC\\StoreMVC.Model\\obj\\",
+      "projectPath": "C:\\Users\\Student\\Desktop\\StoreMVC\\StoreMVC\\StoreMVC.Model\\StoreMVC.Model.csproj",
+      "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Student\\Desktop\\StoreMVC\\StoreMVC\\StoreMVC.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\PCAS1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -582,7 +581,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

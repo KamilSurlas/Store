@@ -13,15 +13,14 @@ namespace StoreMVC.Model
     public class Order : IEntityTypeConfiguration<Order>
     {
         [Key]
-        public int OrderId{ get; set; }
-        [Required]
-        public DateTime? Date { get; set; } 
+        public int OrderId{ get; set; }  
+        public DateTime Date { get; set; } 
 
         [ForeignKey(nameof(UserId))]
         public int UserId{ get; set; }
-        public virtual User User { get; set; }
+        public required virtual User User { get; set; }
 
-        public virtual IEnumerable<OrderPosition> OrderPositions { get; set; }
+        public required virtual IEnumerable<OrderPosition> OrderPositions { get; set; }
 
         public void Configure(EntityTypeBuilder<Order> builder)
         {
