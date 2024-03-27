@@ -14,7 +14,7 @@ namespace StoreMVC.Model
     {
         [Key]
         public int OrderId{ get; set; }  
-        public DateTime Date { get; set; } 
+        public DateTime Date { get; set; } = DateTime.Now;
 
         [ForeignKey(nameof(UserId))]
         public int UserId{ get; set; }

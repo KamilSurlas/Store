@@ -11,9 +11,9 @@ namespace StoreMVC.BLL.Repository.Product
 {
     public interface IProductRepository
     {
-        IEnumerable<ProductResponseDto> GetProducts(ProductQuery query);
+        PageResult<ProductResponseDto> GetProducts(ProductQuery query);
         ProductResponseDto GetProduct(int id);
-        int AddProduct(ProductRequestDto product);
+        int AddProduct(ProductRequestDto dto);
         void UpdateProduct(int id, ProductUpdateRequestDto dto);
         void DeleteProduct(int id);
         void SetProductAvailability(int id);
