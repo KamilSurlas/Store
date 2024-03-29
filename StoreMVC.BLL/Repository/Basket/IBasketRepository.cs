@@ -10,7 +10,7 @@ namespace StoreMVC.BLL.Repository.Basket
     public interface IBasketRepository
     {
         IEnumerable<BasketPositionResponseDto> GetUserBasket(int userId);
-        void AddBasketPosition(BasketPositionRequestDto dto);
+        int AddBasketPosition(BasketPositionRequestDto dto);
         void DeleteBasketPosition(int basketPositionId);
         void UpdateBasketPositionAmount(int basketPositionId, int amount);
     }

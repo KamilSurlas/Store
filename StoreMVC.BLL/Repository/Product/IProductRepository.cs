@@ -12,10 +12,10 @@ namespace StoreMVC.BLL.Repository.Product
     public interface IProductRepository
     {
         PageResult<ProductResponseDto> GetProducts(ProductQuery query);
-        ProductResponseDto GetProduct(int id);
+        ProductResponseDto GetById(int id);
         int AddProduct(ProductRequestDto dto);
         void UpdateProduct(int id, ProductUpdateRequestDto dto);
         void DeleteProduct(int id);
-        void SetProductAvailability(int id);
+        void ActivateProduct(int id);
     }
 }

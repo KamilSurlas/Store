@@ -27,24 +27,31 @@ namespace StoreMVC.BLL_EF.Repository
             _dbContext = dbContext;
             _mapper = mapper;
         }
-        private bool CanPoductBeDeleted(int productId)
-        {
-            var product = _dbContext.Products.FirstOrDefault(p => p.ProductId == productId);
+        private bool CanPoductBeDeleted(Product product)
+        {       
             foreach (var order in _dbContext.Orders)
             {
-                if (order.OrderPositions.Any(o=>o.ProductId == productId))
+                if (order.OrderPositions.Any(o=>o.ProductId == product.ProductId))
                 {
                     return false;
                 }
             }
             foreach (var basketPosition in _dbContext.BasketPositions)
             {
-                if (basketPosition.ProductId == productId)
+                if (basketPosition.ProductId == product.ProductId)
                 {
                     return false;
                 }
             }
             return true;
+        }
+        private Product GetProductById(int productId)
+        {
+            var product = _dbContext.Products.FirstOrDefault(p => p.ProductId == productId);
+
+            if (product is null) throw new ContentNotFoundException($"Product with id: {productId} was not found");
+
+            return product;
         }
         public int AddProduct(ProductRequestDto dto)
         {
@@ -55,24 +62,21 @@ namespace StoreMVC.BLL_EF.Repository
             _dbContext.SaveChanges();
 
             return product.ProductId;
-
         }
         
         public void DeleteProduct(int id)
         {
-            var product = _dbContext.Products.FirstOrDefault(p => p.ProductId == id);
-            if (product is null) throw new ContentNotFoundException($"Product with id: {id} was not found");
-            if (!CanPoductBeDeleted(id)) throw new InvalidDataException($"Product with id: {id} can not be deleted");
+            var product = GetProductById(id);
+            if (!CanPoductBeDeleted(product)) throw new InvalidDataException($"Product with id: {id} can not be deleted");
 
 
             _dbContext.Products.Remove(product);
             _dbContext.SaveChanges();
         }
 
-        public ProductResponseDto GetProduct(int id)
+        public ProductResponseDto GetById(int id)
         {
-            var product = _dbContext.Products.FirstOrDefault(p => p.ProductId == id);
-            if (product is null) throw new ContentNotFoundException($"Product with id: {id} was not found");
+            var product = GetProductById(id);
 
             var result = _mapper.Map<ProductResponseDto>(product);
             return result;
@@ -121,10 +125,9 @@ namespace StoreMVC.BLL_EF.Repository
             return result;
         }
 
-        public void SetProductAvailability(int id)
+        public void ActivateProduct(int id)
         {
-            var product = _dbContext.Products.FirstOrDefault(p => p.ProductId == id);
-            if (product is null) throw new ContentNotFoundException($"Product with id: {id} was not found");
+            var product = GetProductById(id);
             if (product.IsActive) throw new InvalidDataException($"Product with id: {id} is already active");
                 
             product.IsActive = true;
@@ -133,10 +136,9 @@ namespace StoreMVC.BLL_EF.Repository
 
         public void UpdateProduct(int id, ProductUpdateRequestDto dto)
         {
-            var product = _dbContext.Products.FirstOrDefault(p => p.ProductId == id);
-            if (product is null) throw new ContentNotFoundException($"Product with id: {id} was not found");
+            var product = GetProductById(id);
 
-            _mapper.Map<Product>(dto);
+            _mapper.Map(dto, product);
 
             _dbContext.SaveChanges();
         }

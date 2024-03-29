@@ -14,6 +14,10 @@ namespace StoreMVC.BLL_EF.Mapper
     {
         public MappingProfile()
         {
+            // nullable types
+            CreateMap<decimal?, decimal>().ConvertUsing((src, dest) => src ?? dest);
+
+
             // Basket position
             CreateMap<BasketPositionRequestDto, BasketPosition>();
             CreateMap<BasketPosition, BasketPositionResponseDto>();
@@ -22,13 +26,24 @@ namespace StoreMVC.BLL_EF.Mapper
             CreateMap<ProductRequestDto, Product>();
             CreateMap<Product, ProductResponseDto>();
             CreateMap<ProductUpdateRequestDto, Product>()
-                .ForAllMembers(opt => opt.Condition(src => src != null));
+             .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
 
             // Order position
             CreateMap<OrderPosition, OrderPositionResponseDto>();
 
             // Order
             CreateMap<Order, OrderResponseDto>();
+            CreateMap<IEnumerable<BasketPosition>, Order>().ForMember(src => src.OrderPositions, o => o.MapFrom(bps => bps.Select(bp => new OrderPosition
+            {
+                Product = bp.Product,
+                ProductId = bp.ProductId,
+                Order = null!,
+                Amount = bp.Amount,
+                Price = bp.Product.Price * bp.Amount
+            })))
+                 .ForMember(src => src.UserId, o => o.MapFrom(bps => bps.FirstOrDefault().UserId))
+                 .ForMember(src => src.User, o => o.MapFrom(bps => bps.FirstOrDefault().User));
+               
         }
     }
 }
