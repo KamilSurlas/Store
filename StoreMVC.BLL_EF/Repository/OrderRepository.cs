@@ -57,23 +57,11 @@ namespace StoreMVC.BLL_EF.Repository
             if (user.UserBasketPositions is null) throw new ContentNotFoundException($"User's with id: {userId} basket is empty");
 
             var order = _mapper.Map<Order>(user.UserBasketPositions);
-            //var order = new Order()
-            //{
-            //    UserId = userId,
-            //    User = user,
-            //    OrderPositions = user.UserBasketPositions.Select(bp => new OrderPosition
-            //    {
-            //        Order = null!,
-            //        ProductId = bp.ProductId,
-            //        Product = bp.Product,
-            //        Price = bp.Product.Price * bp.Amount,
-            //        Amount = bp.Amount
-            //    })   
-            //};
-            //foreach (var orderPosition in order.OrderPositions)
-            //{
-            //    orderPosition.Order = order;
-            //}
+           
+            foreach (var orderPosition in order.OrderPositions)
+            {
+                orderPosition.Order = order;
+            }
 
             _dbContext.BasketPositions.RemoveRange(user.UserBasketPositions);
             _dbContext.SaveChanges();
