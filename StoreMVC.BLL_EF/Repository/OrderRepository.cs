@@ -61,6 +61,7 @@ namespace StoreMVC.BLL_EF.Repository
             foreach (var orderPosition in order.OrderPositions)
             {
                 orderPosition.Order = order;
+                orderPosition.OrderId = order.OrderId;
             }
 
             _dbContext.BasketPositions.RemoveRange(user.UserBasketPositions);
