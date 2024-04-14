@@ -28,7 +28,7 @@ namespace StoreMVC.Controllers
         }
         [HttpGet("{productId}")]
         [AllowAnonymous]
-        public ActionResult<ProductResponseDto> GetById(int productId)
+        public ActionResult<ProductResponseDto> GetById([FromRoute]int productId)
         {
             var product = _productRepository.GetById(productId);
 
@@ -49,14 +49,14 @@ namespace StoreMVC.Controllers
             return Ok();
         }
         [HttpDelete("{productId}")]
-        public ActionResult DeleteById(int productId)
+        public ActionResult DeleteById([FromRoute]int productId)
         {
             _productRepository.DeleteProduct(productId);
 
             return NoContent();
         }
         [HttpPatch("{productId}")]
-        public ActionResult ActivateProduct(int productId)
+        public ActionResult ActivateProduct([FromRoute] int productId)
         {
             _productRepository.ActivateProduct(productId);
 

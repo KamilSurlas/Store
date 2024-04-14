@@ -15,7 +15,7 @@ namespace StoreMVC.Controllers
             _basketRepository = basketRepository;
         }
         [HttpGet("{userId}")]
-        public ActionResult<IEnumerable<BasketPositionResponseDto>> GetUserBasket(int userId)
+        public ActionResult<IEnumerable<BasketPositionResponseDto>> GetUserBasket([FromRoute]int userId)
         {
             var userBasket = _basketRepository.GetUserBasket(userId);
 
@@ -29,14 +29,14 @@ namespace StoreMVC.Controllers
             return Created($"/api/basket/basketPosition/{id}", null);
         }
         [HttpDelete("{basketPositionId}")]
-        public ActionResult DeleteBasketPosition(int basketPositionId)
+        public ActionResult DeleteBasketPosition([FromRoute]int basketPositionId)
         {
             _basketRepository.DeleteBasketPosition(basketPositionId);
 
             return NoContent();
         }
         [HttpPut("{basketPositionId}")]
-        public ActionResult UpdateBasketPositionAmount(int basketPositionId,[FromQuery] int newAmount)
+        public ActionResult UpdateBasketPositionAmount([FromRoute]int basketPositionId,[FromQuery] int newAmount)
         {
             _basketRepository.UpdateBasketPositionAmount(basketPositionId, newAmount);
 

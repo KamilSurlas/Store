@@ -23,21 +23,21 @@ namespace StoreMVC.Controllers
             return Ok(orders);  
         }
         [HttpGet("{userId}")]
-        public ActionResult<OrderResponseDto> GetUserOrders(int userId)
+        public ActionResult<OrderResponseDto> GetUserOrders([FromRoute]int userId)
         {
             var userOrders = _orderRepository.GetUserOrders(userId);
 
             return Ok(userOrders);
         }
         [HttpPost("{userId}")]
-        public ActionResult AddOrder(int userId)
+        public ActionResult AddOrder([FromQuery]int userId)
         {
             var id = _orderRepository.AddOrder(userId);
 
             return Created($"/api/basket/{id}", null);
         }
-        [HttpGet("{orderId}")]
-        public ActionResult<OrderPositionResponseDto> GetOrderPosition(int orderId,[FromQuery] int orderPositionId)
+        [HttpGet("{orderId}/orderPosition/{orderPositionId}")]
+        public ActionResult<OrderPositionResponseDto> GetOrderPosition([FromRoute]int orderId,[FromRoute] int orderPositionId)
         {
             var orderPosition = _orderRepository.GetOrderPosition(orderId, orderPositionId);
 
