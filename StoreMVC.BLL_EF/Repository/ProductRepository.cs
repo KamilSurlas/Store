@@ -87,7 +87,10 @@ namespace StoreMVC.BLL_EF.Repository
             var baseQuery = _dbContext
               .Products
               .Include(p => p.OrderPositions)
-              .Include(p => p.BasketPositions);
+              .Include(p => p.BasketPositions)
+               .Where(p => query.SearchPhrase == null || (p.BrandName.ToLower().Contains(query.SearchPhrase.ToLower())
+              || p.ModelName.ToLower().Contains(query.SearchPhrase.ToLower())
+              || p.RegistrationNumber.ToLower().Contains(query.SearchPhrase.ToLower())));
 
 
 
