@@ -103,15 +103,9 @@ namespace StoreMVC.BLL_EF.Repository
 
                 var selected = columnsSelector[query.SortBy];
 
-                if (query.SortDirection==SortDirection.ASC)
-                {
-                    baseQuery.OrderBy(selected);
-                }
-                else
-                {
-                    baseQuery.OrderByDescending(selected);
-                }
-             
+                baseQuery = query.SortDirection == SortDirection.ASC ? baseQuery.OrderBy(selected)
+                     : baseQuery.OrderByDescending(selected);
+
             }
 
 

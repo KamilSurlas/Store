@@ -9,7 +9,7 @@ using StoreMVC.BLL.Repository.Product;
 
 namespace StoreMVC.Controllers
 {
-    [Route("api/product")]
+    [Route("api/products")]
     [ApiController]
     public class ProductController : ControllerBase
     {

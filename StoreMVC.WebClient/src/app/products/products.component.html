@@ -1,0 +1,46 @@
+<form #paginationForm="ngForm" (ngSubmit)="onPaginationSubmit()">
+  <label for="pageNumber">Page number</label><br>
+  <input id="pageNumber" type="number" name="pageNumber" min="1" required [(ngModel)]="pageNumber"/>
+  <br><label for="pageSize">Page size</label><br>
+  <input id="pageSize" type="number" name="PageSize" min="5" required [(ngModel)]="pageSize"/>
+  <br><label for="searchPhrase">Search phrase</label><br>
+  <input id="searchPhrase" name="searchPhrase" [(ngModel)]="searchPhrase"/>
+  <br><label for="sortBy">Sort by</label><br>
+  <input id="sortBy" name="sortBy" [(ngModel)]="sortBy"/>
+  <br><label for="sortDirection">Sort direction</label><br>
+  <input id="sortDirection" name="sortDirection" [(ngModel)]="sortDirection"/>
+  <input type="submit" name="submit" value="pobierz" [disabled]="!paginationForm.valid"/>
+</form>
+<br>
+<h1>Products</h1>
+<br>
+<table class="table table-striped" border="1">
+  <thead>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Is Available</th>
+  </thead>
+    <tbody>
+      <tr *ngFor="let p of result?.items" [app-product-row]="p" (choosed)="onRowChoosed($event)"></tr>
+    </tbody>
+
+</table>
+ 
+<br>
+<table class="table table-striped" border="1">
+  <thead>
+    <th>Total Pages</th>
+    <th>Items shown from</th>
+    <th>Items shown to</th>
+    <th>Total items</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{result?.totalPages}}</td>
+      <td>{{result?.itemFrom}}</td>
+      <td>{{result?.itemTo}}</td>
+      <td>{{result?.totalItemsCount}}</td>
+    </tr>
+  </tbody>
+</table>
+
