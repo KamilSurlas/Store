@@ -44,8 +44,8 @@ export class ProductsComponent {
   public onPaginationSubmit(): void{
     this.loadData();
    }
-   public onRowChoosed(event: ProductResponseDto):void{
-        this.router.navigateByUrl(`/products/details/${event.productId}`); 
+   public onRowChoosed(event: number):void{
+        this.router.navigateByUrl(`/products/${event}`); 
       }
     }
    

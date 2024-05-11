@@ -8,8 +8,8 @@ import { ProductResponseDto } from '../models/product-response.interface';
 })
 export class ProductRowComponent {
 @Input('app-product-row') product!: ProductResponseDto;
-@Output() choosed = new EventEmitter<ProductResponseDto>();
+@Output() choosed = new EventEmitter<number>();
 public onChooseClick():void{
-  this.choosed.emit(this.product);
+  this.choosed.emit(this.product.productId);
 }
 }

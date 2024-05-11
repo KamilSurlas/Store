@@ -1,6 +1,6 @@
-<h1>Product {{product?.name}}</h1>
+<h1>{{product?.name}}</h1>
 <br>
-<p>Id: {{product?.productId}}</p>
 
-<img src="{{product?.image}}">><br>
+<img src="{{product?.image}}"><br>
 <h1>Price: {{product?.price}} zl </h1>
+<h1 *ngIf="!product?.isActive">Currently product is no available</h1>

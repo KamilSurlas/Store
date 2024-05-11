@@ -13,9 +13,9 @@ public productId: string | null=null;
 constructor(private route: ActivatedRoute,private productsService: ProductsService){};
 ngOnInit(): void {
   this.route.params.subscribe(p => {
-    this.productId = p['id'];
+    this.productId = p['productid'];
   });
-  this.productsService.getById(parseInt(this.productId?? "")).subscribe({
+  this.productsService.getById(parseInt(this.productId?? "null")).subscribe({
     next: (res) => {
       this.product=res;
     }
