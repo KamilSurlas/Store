@@ -9,7 +9,7 @@ import { PageResult } from '../models/pageresult.interface';
   providedIn: 'root'
 })
 export class ProductsService {
-
+  private apiUrl : string = `https://localhost:7208/api/products/`;
   constructor(private httpClient: HttpClient) { }
 
 
@@ -17,12 +17,17 @@ public get(pagination: ProductQuery): Observable<PageResult<ProductResponseDto>>
 {
   const httpParams=new HttpParams().append("pageNumber",pagination.pageNumber).append("pageSize", pagination.pageSize).append("searchPhrase",pagination.searchPhrase ?? "").append("sortBy",pagination.sortBy ?? "").append("sortDirection",pagination.sortDirection);
 const params = httpParams;
-return this.httpClient.get<PageResult<ProductResponseDto>>('https://localhost:7208/api/products', {params: params});
+return this.httpClient.get<PageResult<ProductResponseDto>>(this.apiUrl, {params: params});
 
 }
 public getById(productId: number):Observable<ProductResponseDto>{
-  return this.httpClient.get<ProductResponseDto>(`https://localhost:7208/api/products/${productId}`);
+  return this.httpClient.get<ProductResponseDto>(this.apiUrl + productId);
 }
-
+public changeAvailability(productId:number):Observable<void>{
+  return this.httpClient.patch<void>(this.apiUrl + productId, null);
+}
+public delete(productId:number):Observable<void>{
+  return this.httpClient.delete<void>(this.apiUrl + productId);
+}
 }
   

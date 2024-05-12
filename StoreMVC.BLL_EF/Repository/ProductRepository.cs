@@ -120,12 +120,10 @@ namespace StoreMVC.BLL_EF.Repository
             return result;
         }
 
-        public void ActivateProduct(int id)
+        public void ChangeProductAvailability(int id)
         {
             var product = GetProductById(id);
-            if (product.IsActive) throw new InvalidDataException($"Product with id: {id} is already active");
-                
-            product.IsActive = true;
+            product.IsActive = product.IsActive ? false : true;
             _dbContext.SaveChanges();
         }
 

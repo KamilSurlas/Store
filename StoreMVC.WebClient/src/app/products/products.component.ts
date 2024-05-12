@@ -18,16 +18,7 @@ export class ProductsComponent {
   public result: PageResult<ProductResponseDto> | null = null;
   public choosenProduct: ProductResponseDto | null = null;
   constructor(private productsService: ProductsService, private router: Router){
-    this.productsService.get({pageSize: this.pageSize, pageNumber:this.pageNumber, searchPhrase: this.searchPhrase, sortBy: this.sortBy, sortDirection: this.sortDirection}).subscribe(
-      {
-      next: (res) => {
-        console.log(res),
-        this.result= res;
-
-      },
-      error: (err) => console.log(err),
-      complete: ()=>console.log('complete')
-      });
+    this.loadData();
   }
   private loadData():void{
     this.productsService.get({pageSize: this.pageSize, pageNumber:this.pageNumber, searchPhrase: this.searchPhrase, sortBy: this.sortBy, sortDirection: this.sortDirection}).subscribe(

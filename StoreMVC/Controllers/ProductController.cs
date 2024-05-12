@@ -56,9 +56,9 @@ namespace StoreMVC.Controllers
             return NoContent();
         }
         [HttpPatch("{productId}")]
-        public ActionResult ActivateProduct([FromRoute] int productId)
+        public ActionResult ChangeProductAvailability([FromRoute] int productId)
         {
-            _productRepository.ActivateProduct(productId);
+            _productRepository.ChangeProductAvailability(productId);
 
             return Ok();
         }

@@ -4,3 +4,8 @@
 <img src="{{product?.image}}"><br>
 <h1>Price: {{product?.price}} zl </h1>
 <h1 *ngIf="!product?.isActive">Currently product is no available</h1>
+<button (click)="changeProductAvailability()">{{!product?.isActive? 'Activate' : 'Deactivate'}}</button>
+<br>
+<button (click)="deleteProduct()">Delete Product</button>
+<span *ngIf="deleteError">{{deleteError}}</span>
+    

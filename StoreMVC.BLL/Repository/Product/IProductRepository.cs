@@ -16,6 +16,6 @@ namespace StoreMVC.BLL.Repository.Product
         int AddProduct(ProductRequestDto dto);
         void UpdateProduct(int id, ProductUpdateRequestDto dto);
         void DeleteProduct(int id);
-        void ActivateProduct(int id);
+        void ChangeProductAvailability(int id);
     }
 }
