@@ -21,7 +21,7 @@
     <th>Is Available</th>
   </thead>
     <tbody>
-      <tr *ngFor="let p of result?.items" [app-product-row]="p" (choosed)="onRowChoosed($event)"></tr>
+      <tr *ngFor="let p of result?.items" class="selectable" [app-product-row]="p" (click)="onRowChoosed(p.productId)"></tr>
     </tbody>
 
 </table>

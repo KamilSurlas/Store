@@ -25,8 +25,7 @@ constructor(private route: ActivatedRoute,private productsService: ProductsServi
   public changeProductAvailability():void{
     this.productsService.changeAvailability(this.productId).subscribe({
       next: () => {
-        window.location.reload();
-        console.log('Product activated successfully')
+        this.product!.isActive = !this.product?.isActive;
       },
       error: (err) => {
         console.log(err);

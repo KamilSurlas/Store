@@ -2,6 +2,6 @@
     cursor: pointer;
   }
   .selectable:hover{
-  background-color: red;
+ color: blue;
   }
   

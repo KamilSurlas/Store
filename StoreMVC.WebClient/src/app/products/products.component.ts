@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
+
 export class ProductsComponent {
   public pageNumber: number = 1;
   public pageSize: number = 10;
@@ -16,7 +17,6 @@ export class ProductsComponent {
   public sortBy: string | null = null;
   public sortDirection: SortDirection = SortDirection.ASC;
   public result: PageResult<ProductResponseDto> | null = null;
-  public choosenProduct: ProductResponseDto | null = null;
   constructor(private productsService: ProductsService, private router: Router){
     this.loadData();
   }
@@ -35,8 +35,8 @@ export class ProductsComponent {
   public onPaginationSubmit(): void{
     this.loadData();
    }
-   public onRowChoosed(event: number):void{
-        this.router.navigateByUrl(`/products/${event}`); 
+   public onRowChoosed(productId: number):void{
+        this.router.navigateByUrl(`/products/${productId}`); 
       }
     }
    
