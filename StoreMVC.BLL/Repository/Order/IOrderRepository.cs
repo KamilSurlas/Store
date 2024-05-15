@@ -9,9 +9,10 @@ namespace StoreMVC.BLL.Repository.Order
 {
     public interface IOrderRepository
     {
-        int AddOrder(int userId);
+        int AddOrder();
         IEnumerable<OrderResponseDto> GetOrders();
-        IEnumerable<OrderResponseDto> GetUserOrders(int userId);
+        IEnumerable<OrderResponseDto> GetUserOrders();
         OrderPositionResponseDto GetOrderPosition(int orderId, int orderPositionId);
+        OrderResponseDto GetOrderById(int orderId);
     }
 }

@@ -1,1 +1,10 @@
-<p>all works!</p>
+<h1>All Orders</h1>
+<br>
+<table class="table table-striped" border="1">
+  <thead>
+    <th>Order Date</th>
+  </thead>
+    <tbody>
+      <tr *ngFor="let o of results" class="selectable" [app-order-row]="o" (click)="onOrderChoosed(o.orderId)"></tr>
+    </tbody>
+</table>

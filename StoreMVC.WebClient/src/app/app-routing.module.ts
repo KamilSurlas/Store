@@ -5,12 +5,14 @@ import { OrdersComponent } from './orders/orders.component';
 import { BasketComponent } from './basket/basket.component';
 import { AllComponent } from './orders/all/all.component';
 import { DetailsComponent } from './products/details/details.component';
+import { OrderdetailsComponent } from './orders/all/orderdetails/orderdetails.component';
 const routes: Routes = [
   {path:'products', component: ProductsComponent},
   {path:'orders',component: OrdersComponent},
   {path:'orders/all',component: AllComponent},
   {path: 'basket', component: BasketComponent},
   {path: 'products/:productid', component: DetailsComponent},
+  {path: 'orders/all/:orderid', component: OrderdetailsComponent},
   {path: '', redirectTo: 'products', pathMatch: 'full'}
   ];
 @NgModule({

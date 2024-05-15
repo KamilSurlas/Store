@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductRowComponent } from './product-row/product-row.component';
 import { DetailsComponent } from './products/details/details.component';
+import { OrderdetailsComponent } from './orders/all/orderdetails/orderdetails.component';
+import { OrderRowComponent } from './order-row/order-row.component';
+import { OrderpositionRowComponent } from './orderposition-row/orderposition-row.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { DetailsComponent } from './products/details/details.component';
     BasketComponent,
     AllComponent,
     ProductRowComponent,
-    DetailsComponent
+    DetailsComponent,
+    OrderdetailsComponent,
+    OrderRowComponent,
+    OrderpositionRowComponent
   ],
   imports: [
     BrowserModule,

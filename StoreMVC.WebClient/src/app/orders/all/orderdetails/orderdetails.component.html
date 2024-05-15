@@ -1,0 +1,11 @@
+<table>
+  <thead>
+    <th>Product Name</th>
+    <th>Product Price</th>
+    <th>Amount</th>
+    <th>Price</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let o of results" [app-orderposition-row]="o"></tr>
+  </tbody>
+</table>

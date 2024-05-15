@@ -6,7 +6,7 @@ using StoreMVC.BLL_EF;
 
 namespace StoreMVC.Controllers
 {
-    [Route("api/order")]
+    [Route("api/orders")]
     [ApiController]
     public class OrderController : ControllerBase
     {
@@ -15,24 +15,24 @@ namespace StoreMVC.Controllers
         {
             _orderRepository = orderRepository;
         }
-        [HttpGet]
+        [HttpGet("all")]
         public ActionResult<IEnumerable<OrderResponseDto>> GetAll() 
         {
             var orders = _orderRepository.GetOrders();
         
             return Ok(orders);  
         }
-        [HttpGet("{userId}")]
-        public ActionResult<OrderResponseDto> GetUserOrders([FromRoute]int userId)
+        [HttpGet]
+        public ActionResult<OrderResponseDto> GetUserOrders()
         {
-            var userOrders = _orderRepository.GetUserOrders(userId);
+            var userOrders = _orderRepository.GetUserOrders();
 
             return Ok(userOrders);
         }
         [HttpPost("{userId}")]
-        public ActionResult AddOrder([FromQuery]int userId)
+        public ActionResult AddOrder()
         {
-            var id = _orderRepository.AddOrder(userId);
+            var id = _orderRepository.AddOrder();
 
             return Created($"/api/basket/{id}", null);
         }
@@ -42,6 +42,12 @@ namespace StoreMVC.Controllers
             var orderPosition = _orderRepository.GetOrderPosition(orderId, orderPositionId);
 
             return Ok(orderPosition);
+        }
+        [HttpGet("{orderId}")]
+        public ActionResult<OrderResponseDto> GetOrderById([FromRoute] int orderId)
+        {
+            var order = _orderRepository.GetOrderById(orderId);
+            return Ok(order);
         }
     }
 }

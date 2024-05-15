@@ -36,6 +36,7 @@ namespace StoreMVC.BLL_EF.Repository
         private Order GetOrderById(int orderId)
         {
             var order = _dbContext.Orders.Include(o => o.OrderPositions)
+                .ThenInclude(op => op.Product)
                 .FirstOrDefault(o => o.OrderId == orderId);
 
             if (order is null) throw new ContentNotFoundException($"Order with id: {orderId} was not found");
@@ -50,11 +51,12 @@ namespace StoreMVC.BLL_EF.Repository
 
             return orderPosition;
         }
-        public int AddOrder(int userId)
+        public int AddOrder()
         {
-            var user = GetUserById(userId);
+            // Here User Context Service will provide user Id
+            var user = GetUserById(0);
 
-            if (user.UserBasketPositions is null) throw new ContentNotFoundException($"User's with id: {userId} basket is empty");
+          //  if (user.UserBasketPositions is null) throw new ContentNotFoundException($"User's with id: {userId} basket is empty");
 
             var order = _mapper.Map<Order>(user.UserBasketPositions);
            
@@ -85,21 +87,34 @@ namespace StoreMVC.BLL_EF.Repository
 
         public IEnumerable<OrderResponseDto> GetOrders()
         {
-            var orders = _dbContext.Orders.ToList();
+            var orders = _dbContext.Orders.Include(o=>o.OrderPositions).ThenInclude(ops=>ops.Product).ToList();
 
             var results = _mapper.Map<IEnumerable<OrderResponseDto>>(orders);
             return results;
         }
 
-        public IEnumerable<OrderResponseDto> GetUserOrders(int userId)
+        public IEnumerable<OrderResponseDto> GetUserOrders()
         {
-            var user = GetUserById(userId);
+            // Here User Context Service will provide user Id
+            //var user = GetUserById(0);
 
-            var orders = _dbContext.Orders.Where(o => o.UserId == userId).ToList();
-            if (orders is null) throw new ContentNotFoundException($"User with id: {userId} does not have order history");
+            //  var orders = _dbContext.Orders.Where(o => o.UserId == userId).ToList();
+            //if (orders is null) throw new ContentNotFoundException($"User with id: {userId} does not have order history");
 
-            var results = _mapper.Map<IEnumerable<OrderResponseDto>>(orders);
-            return results;
+            // var results = _mapper.Map<IEnumerable<OrderResponseDto>>(orders);
+            //return results;
+            return null; // Need to be implemented after authorization
+        }
+
+        OrderResponseDto IOrderRepository.GetOrderById(int orderId)
+        {
+            var order = GetOrderById(orderId);
+            if (order is null)
+            {
+                throw new ContentNotFoundException($"Order with id: {orderId} was not found");
+            }
+            var result = _mapper.Map<OrderResponseDto>(order);
+            return result;
         }
     }
 }
