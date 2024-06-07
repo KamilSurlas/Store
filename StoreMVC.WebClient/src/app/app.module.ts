@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
@@ -14,7 +13,8 @@ import { DetailsComponent } from './products/details/details.component';
 import { OrderdetailsComponent } from './orders/all/orderdetails/orderdetails.component';
 import { OrderRowComponent } from './order-row/order-row.component';
 import { OrderpositionRowComponent } from './orderposition-row/orderposition-row.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,9 +30,11 @@ import { OrderpositionRowComponent } from './orderposition-row/orderposition-row
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

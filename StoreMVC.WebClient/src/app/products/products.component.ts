@@ -4,10 +4,12 @@ import { ProductsService } from '../services/products.service';
 import { SortDirection } from '../models/sortdirection.interface';
 import { PageResult } from '../models/pageresult.interface';
 import { Router } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
+import { importProvidersFrom } from '@angular/core';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  styleUrl: './products.component.css',
 })
 
 export class ProductsComponent {
@@ -17,6 +19,7 @@ export class ProductsComponent {
   public sortBy: string | null = null;
   public sortDirection: SortDirection = SortDirection.ASC;
   public result: PageResult<ProductResponseDto> | null = null;
+  public pageSizeOptions: number[] = [5,10,15];
   constructor(private productsService: ProductsService, private router: Router){
     this.loadData();
   }
@@ -26,7 +29,6 @@ export class ProductsComponent {
       next: (res) => {
         console.log(res),
         this.result= res
-
       },
       error: (err) => console.log(err),
       complete: ()=>console.log('complete')
@@ -36,7 +38,13 @@ export class ProductsComponent {
     this.loadData();
    }
    public onRowChoosed(productId: number):void{
-        this.router.navigateByUrl(`/products/${productId}`); 
+        this.router.navigateByUrl(`/products/${productId}`);
+      }
+    public handlePageEvent(e: PageEvent) {
+        this.result!.totalItemsCount = e.length;
+        this.pageSize = e.pageSize;
+        this.pageNumber = e.pageIndex + 1;
+        this.loadData();
       }
     }
-   
+

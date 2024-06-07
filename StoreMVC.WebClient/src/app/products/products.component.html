@@ -25,22 +25,11 @@
     </tbody>
 
 </table>
- 
+
 <br>
-<table class="table table-striped" border="1">
-  <thead>
-    <th>Total Pages</th>
-    <th>Items shown from</th>
-    <th>Items shown to</th>
-    <th>Total items</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{result?.totalPages}}</td>
-      <td>{{result?.itemFrom}}</td>
-      <td>{{result?.itemTo}}</td>
-      <td>{{result?.totalItemsCount}}</td>
-    </tr>
-  </tbody>
-</table>
+<mat-paginator [length]="result?.totalItemsCount"
+              [pageSize]="pageSizeOptions[0]"
+              (page)="handlePageEvent($event)"
+              [pageSizeOptions]="pageSizeOptions">
+</mat-paginator>
 
